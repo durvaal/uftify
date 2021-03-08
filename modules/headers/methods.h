@@ -5,5 +5,6 @@ void addSong();
 void clearSongs();
 void showSongs();
 void searchSong();
+void initializeProgram();
 
 #endif

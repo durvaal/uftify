@@ -15,7 +15,7 @@ void addSong() {
   char songName[50];
   char songSinger[50];
 
-  Playlist *newPlaylist = (struct Playlist * ) malloc(sizeof(class Playlist));
+  Playlist *newPlaylist = new Playlist();
 
   printf("\nWhat is the playlist? ");
   fgets(playListName, 50, stdin);
@@ -57,7 +57,6 @@ void clearSongs() {
       while (startPlaylist != NULL) {
         auxiliaryPlaylist = startPlaylist;
         startPlaylist = startPlaylist->node;
-        free(auxiliaryPlaylist);
       }
       printf("\nThe list has been successfully emptied!\n");
     } else {
@@ -111,4 +110,50 @@ void searchSong() {
       printf("\nSong %s not found!\n", name);
     }
   }
+}
+
+// Starts the initial program instructions
+void initializeProgram() {
+  int opt, c;
+
+  do {
+    printf("\n*===========♫♫♫=============*\n");
+    printf("|          UFtify           |\n");
+    printf("*===========♫♫♫=============*\n");
+    printf("*===========================*\n");
+    printf("| 1. Add song               |\n");
+    printf("| 2. Search song            |\n");
+    printf("| 3. List song              |\n");
+    printf("| 4. Clear all songs        |\n");
+    printf("| 5. Exit                   |\n");
+    printf("*===========================*\n");
+    printf("\nType your choice: ");
+    
+    scanf("%d", &opt);
+
+    while ((c = getchar()) != '\n' && c != EOF) {} // Clear buffer
+    
+    switch (opt) {
+      case 1:
+        addSong();
+        break;
+      case 2:
+        searchSong();
+        break;
+      case 3:
+        showSongs();
+        break;
+      case 4:
+        clearSongs();
+        break;
+      case 5:
+        printf("\nSee you later, bye! \n");
+        break;
+      default:
+        printf("\nInvalid choice!\n");
+        break;
+    }
+  }
+  
+  while (opt != 5);
 }
