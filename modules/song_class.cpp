@@ -1,8 +1,8 @@
-#include <string.h>
+#include <string>
 #include "./headers/song_class.h"
 
 void Song::setName(char name[50]) {
-  strcpy(this->name, name);
+  strncpy(this->name, name, 50);
 }
 
 char* Song::getName() {
@@ -10,7 +10,7 @@ char* Song::getName() {
 }
 
 void Song::setSinger(char singer[50]) {
-  strcpy(this->singer, singer);
+  strncpy(this->singer, singer, 50);
 }
 
 char* Song::getSinger() {

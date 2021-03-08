@@ -1,6 +1,8 @@
 #ifndef __SONG_CLASS_H_
 #define __SONG_CLASS_H_
 
+#include <string.h>
+
 class Song {
   private:
     char name[50];
